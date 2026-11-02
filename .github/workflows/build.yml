@@ -1,0 +1,39 @@
+name: Build installers
+# Se ejecuta solo al subir los archivos (push) o manualmente desde la pestaña Actions
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar Inno Setup
+        run: choco install innosetup -y --no-progress
+      - name: Compilar plugin (VST3 + Standalone)
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+          cmake --build build --config Release --target NovaVocal_VST3 NovaVocal_Standalone
+      - name: Crear instalador .exe
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" Installer\NovaVocal.iss'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NovaVocal-Windows-Installer
+          path: dist/NovaVocal-Windows-Installer.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NovaVocal-VST3-portable
+          path: build/NovaVocal_artefacts/Release/VST3/
+
+  macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilar y crear .pkg
+        run: ./Installer/build_mac.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NovaVocal-macOS-Installer
+          path: dist/NovaVocal-Installer.pkg
