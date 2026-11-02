@@ -1,0 +1,12 @@
+﻿Nova Vocal se instalo en:  C:\Program Files\Common Files\VST3\Nova Vocal.vst3
+
+Para usarlo en FL Studio:
+ 1. Abri FL Studio > Options > Manage plugins.
+ 2. Verifica que la carpeta "C:\Program Files\Common Files\VST3" este en la lista de rutas.
+ 3. Toca "Start scan" (o "Find installed plugins").
+ 4. En el Mixer, en un slot de efecto: Nova Vocal (aparece como VST3).
+
+Notas:
+ - FL Studio no carga AAX. Ese formato es solo para Pro Tools.
+ - Vocal Assist: pone la pista de voz sola, dale Play y toca "Escuchar" en el plugin.
+ - Si no aparece, reinicia FL Studio y volve a escanear.

@@ -1,0 +1,12 @@
+﻿Nova Vocal - Condiciones de uso
+
+[EDITAR ANTES DE DISTRIBUIR: reemplazá este texto por tu acuerdo de licencia real.]
+
+Este software se entrega "tal cual", sin garantía de ningún tipo. El autor no se
+hace responsable por daños derivados de su uso.
+
+Podés instalar y usar Nova Vocal en tus propios equipos para producción de audio.
+No está permitido redistribuir el instalador ni modificar el software sin autorización
+del autor.
+
+Nova Vocal está construido con JUCE (https://juce.com), usado bajo su licencia correspondiente.
